@@ -400,7 +400,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h1><h2 id="1-尽可能使用局部变量"><a href="#1-尽可能使用局部变量" class="headerlink" title="1. 尽可能使用局部变量"></a>1. 尽可能使用局部变量</h2><p><strong>调用方法时传递的参数以及在调用中创建的临时变量都保存在栈中速度较快，其他变 量，如静态变量、实例变量等，都在堆中创建，速度较慢。另外，栈中创建的变量，随 着方法的运行结束，这些内容就没了，不需要额外的垃圾回收</strong></p>
-<h2 id="2-尽量减少对变量的重复计算"><a href="#2-尽量减少对变量的重复计算" class="headerlink" title="2. 尽量减少对变量的重复计算"></a>2. 尽量减少对变量的重复计算</h2><p>**明确一个概念，对方法的调用，即使方法中只有一句语句，也是有消耗的。所以例如下 面的操作：  **</p>
+<h2 id="2-尽量减少对变量的重复计算"><a href="#2-尽量减少对变量的重复计算" class="headerlink" title="2. 尽量减少对变量的重复计算"></a>2. 尽量减少对变量的重复计算</h2><p><strong>明确一个概念，对方法的调用，即使方法中只有一句语句，也是有消耗的。所以例如下 面的操作:</strong></p>
 <p><code>for (int i = 0; i &lt; list.size(); i++) &#123;...&#125; </code></p>
 <p><strong>建议替换为：</strong></p>
 <p> <code>int length = list.size(); for (int i = 0, i &lt; length; i++) &#123;...&#125;</code></p>
@@ -409,14 +409,14 @@
 <p>  <code>if (i == 1)&#123; String str = &quot;aaa&quot;; list.add(str); &#125;  </code></p>
 <h2 id="4-异常不应该用来控制程序流程"><a href="#4-异常不应该用来控制程序流程" class="headerlink" title="4. 异常不应该用来控制程序流程"></a>4. 异常不应该用来控制程序流程</h2><p> <strong>异常对性能不利。抛出异常首先要创建一个新的对象，Throwable接口的构造函数调用 名为fillInStackTrace()的本地同步方 法，fillInStackTrace()方法检查堆栈，收集调用跟踪 信息。只要有异常被抛出，Java虚拟机就必须调整调用堆栈，因为在处理过程中创建 了 一个新的对象。异常只能用于错误处理，不应该用来控制程序流程</strong> </p>
 <h2 id="5-不要将数组声明为public-static-final"><a href="#5-不要将数组声明为public-static-final" class="headerlink" title="5.不要将数组声明为public static final"></a>5.不要将数组声明为public static final</h2><p> <strong>因为这毫无意义，这样只是定义了引用为static final，数组的内容还是可以随意改变的， 将数组声明为public更是一个安全漏洞，这意味着这个数组可以被外部类所改变</strong></p>
-<h2 id="6-不要创建一些不使用的对象，不要导入一些不使用的类"><a href="#6-不要创建一些不使用的对象，不要导入一些不使用的类" class="headerlink" title="6. 不要创建一些不使用的对象，不要导入一些不使用的类"></a>6. 不要创建一些不使用的对象，不要导入一些不使用的类</h2><p>**这毫无意义，如果代码中出现”The value of the local variable i is not used”、”The import java.util is never used”，那么请删除这些无用的内容 **</p>
+<h2 id="6-不要创建一些不使用的对象，不要导入一些不使用的类"><a href="#6-不要创建一些不使用的对象，不要导入一些不使用的类" class="headerlink" title="6. 不要创建一些不使用的对象，不要导入一些不使用的类"></a>6. 不要创建一些不使用的对象，不要导入一些不使用的类</h2><p><strong>这毫无意义，如果代码中出现”The value of the local variable i is not used”、”The import java.util is never used”，那么请删除这些无用的内容</strong></p>
 <h2 id="7-程序运行过程中避免使用反射"><a href="#7-程序运行过程中避免使用反射" class="headerlink" title="7. 程序运行过程中避免使用反射"></a>7. 程序运行过程中避免使用反射</h2><p><strong>反射是Java提供给用户一个很强大的功能，功能强大往往意味着效率不高。不建议在程序 运行过程中使用尤其是频繁使用反射机制，特别是 Method的invoke方法。 如果确实有必要，一种建议性的做法是将那些需要通过反射加载的类在项目启动的时候 通过反射实例化出一个对象并放入内存.</strong></p>
 <h2 id="8-使用数据库连接池和线程池"><a href="#8-使用数据库连接池和线程池" class="headerlink" title="8. 使用数据库连接池和线程池"></a>8. 使用数据库连接池和线程池</h2><p> <strong>这两个池都是用于重用对象的，前者可以避免频繁地打开和关闭连接，后者可以避免频 繁地创建和销毁线</strong></p>
 <h2 id="9-容器初始化时尽可能指定长度"><a href="#9-容器初始化时尽可能指定长度" class="headerlink" title="9. 容器初始化时尽可能指定长度"></a>9. 容器初始化时尽可能指定长度</h2><p> <strong>容器初始化时尽可能指定长度，如：new ArrayList&lt;&gt;(10); new HashMap&lt;&gt;(32); 避免容 器长度不足时，扩容带来的性能损耗</strong>。 </p>
 <h2 id="10-ArrayList随机遍历快，LinkedList添加删除快"><a href="#10-ArrayList随机遍历快，LinkedList添加删除快" class="headerlink" title="10. ArrayList随机遍历快，LinkedList添加删除快"></a>10. ArrayList随机遍历快，LinkedList添加删除快</h2><h2 id="11-使用Entry遍历Map"><a href="#11-使用Entry遍历Map" class="headerlink" title="11. 使用Entry遍历Map"></a>11. 使用Entry遍历Map</h2><p><code>Map map = new HashMap&lt;&gt;(); for (Map.Entry entry : map.entrySet()) &#123; String key = entry.getKey(); String value = entry.getValue(); &#125;</code></p>
 <p> <strong>避免使用这种方式：</strong></p>
 <p>  <code>Map map = new HashMap&lt;&gt;(); for (String key : map.keySet()) &#123; String value = map.get(key); &#125; </code></p>
-<h2 id="12-不要手动调用System-gc"><a href="#12-不要手动调用System-gc" class="headerlink" title="12.不要手动调用System.gc();"></a>12.不要手动调用System.gc();</h2><h2 id="13-String尽量少用正则表达式"><a href="#13-String尽量少用正则表达式" class="headerlink" title="13. String尽量少用正则表达式"></a>13. String尽量少用正则表达式</h2><p> **正则表达式虽然功能强大，但是其效率较低，除非是有需要，否则尽可能少用。 replace() 不支持正则 replaceAll() 支持正则 如果仅仅是字符的替换建议使用replace()**。 </p>
+<h2 id="12-不要手动调用System-gc"><a href="#12-不要手动调用System-gc" class="headerlink" title="12.不要手动调用System.gc();"></a>12.不要手动调用System.gc();</h2><h2 id="13-String尽量少用正则表达式"><a href="#13-String尽量少用正则表达式" class="headerlink" title="13. String尽量少用正则表达式"></a>13. String尽量少用正则表达式</h2><p> <strong>正则表达式虽然功能强大，但是其效率较低，除非是有需要，否则尽可能少用。 replace() 不支持正则 replaceAll() 支持正则 如果仅仅是字符的替换建议使用replace().</strong> </p>
 <h2 id="14-日志的输出要注意级别"><a href="#14-日志的输出要注意级别" class="headerlink" title="14. 日志的输出要注意级别"></a>14. 日志的输出要注意级别</h2><p> <code>// 当前的日志级别是error </code></p>
 <p><code>LOGGER.info(&quot;保存出错！&quot; + user);</code></p>
 <h2 id="15-对资源的close-建议分开操作"><a href="#15-对资源的close-建议分开操作" class="headerlink" title="15. 对资源的close()建议分开操作"></a>15. 对资源的close()建议分开操作</h2><p> <code>try&#123; XXX.close(); YYY.close(); &#125; catch (Exception e)&#123; ... &#125;  </code></p>
@@ -657,30 +657,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/08/04/%E7%BC%96%E7%A0%81%E7%9A%84%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE/">
+                <a href="/2020/08/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="编码的优化建议">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="操作系统基础">
                         
-                        <span class="card-title">编码的优化建议</span>
+                        <span class="card-title">操作系统基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码优化1. 尽可能使用局部变量调用方法时传递的参数以及在调用中创建的临时变量都保存在栈中速度较快，其他变 量，如静态变量、实例变量等，都在堆中创建，速度较慢。另外，栈中创建的变量，随 着方法的运行结束，这些内容就没了，不需要额外的垃圾回收
+                            1.操作系统概览1.what&amp;why1.1 what◆ 操作系统是管理计算机硬件和软件资源的计算机程序
+◆ 操作系统提供让用户和系统交互的操作界面
+◆ 管理配置内存、决定资源供需顺序、控制输入输出设备等
+◆ 操作系统的种类是多种多样
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -689,12 +691,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/jvm%E4%BC%98%E5%8C%96/">
-                        <span class="chip bg-color">jvm优化</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>

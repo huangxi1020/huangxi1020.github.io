@@ -1,0 +1,1430 @@
+<!DOCTYPE HTML>
+<html lang="zh-CH">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="操作系统基础, 黄熙的博客">
+    <meta name="description" content="在此分享自己的心得，技术博客，qq1014231151">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>操作系统基础 | 黄熙的博客</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">黄熙的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">黄熙的博客</div>
+        <div class="logo-desc">
+            
+            在此分享自己的心得，技术博客，qq1014231151
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">操作系统基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">计算机基础</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-08-05
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-操作系统概览"><a href="#1-操作系统概览" class="headerlink" title="1.操作系统概览"></a>1.操作系统概览</h1><h2 id="1-what-amp-why"><a href="#1-what-amp-why" class="headerlink" title="1.what&amp;why"></a>1.what&amp;why</h2><h3 id="1-1-what"><a href="#1-1-what" class="headerlink" title="1.1 what"></a>1.1 what</h3><p>◆ 操作系统是管理计算机硬件和软件资源的计算机程序</p>
+<p>◆ 操作系统提供让用户和系统交互的操作界面</p>
+<p>◆ 管理配置内存、决定资源供需顺序、控制输入输出设备等</p>
+<p>◆ 操作系统的种类是多种多样的，不局限于计算机</p>
+<p>◆ 在不同的设备上，操作系统可向用户呈现多种操作手段</p>
+<p>◆ 从手机到超级计算机，操作系统可简单也可复杂</p>
+<p>◆Android,ios,Windows,Linux,MacOs均为操作系统</p>
+<h3 id="1-2-why"><a href="#1-2-why" class="headerlink" title="1.2 why"></a>1.2 why</h3><p>◆ 我们不可能直接操作计算机硬件</p>
+<p>◆ 操作系统的简易性使得更多人能够使用计算机</p>
+<p>◆ 设备种类繁多复杂，需要统一界面</p>
+<h2 id="2-操作系统的基本功能"><a href="#2-操作系统的基本功能" class="headerlink" title="2.操作系统的基本功能"></a>2.操作系统的基本功能</h2><ul>
+<li><p>操作系统统一管理着计算机资源（处理器资源，存储器资源，文件资源，IO设备资源）</p>
+</li>
+<li><p>操作系统实现了对计算机资源的抽象（处 理 器 资 源，存 储 器 资 源，IO 设 备 资 源，文 件 资 源）</p>
+<ul>
+<li><p>用户无需面向硬件接口编程</p>
+<p>  ◆ IO设备管理软件，提供读写接口</p>
+<p>  ◆ 文件管理软件，提供操作文件接口</p>
+</li>
+</ul>
+</li>
+<li><p>操作系统提供了用户与计算机之间的接口</p>
+<ul>
+<li>图像窗口形式</li>
+<li>命令形式</li>
+<li>系统调用形式</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-操作系统的相关概念"><a href="#3-操作系统的相关概念" class="headerlink" title="3.操作系统的相关概念"></a>3.操作系统的相关概念</h2><h3 id="3-1-并发性"><a href="#3-1-并发性" class="headerlink" title="3.1 并发性"></a>3.1 并发性</h3><ul>
+<li><p>并发是指两个或多个事件可以在同一个时间间隔发生  (并行是指两个或多个事件可以在同一个时刻发生)</p>
+<h3 id="3-2-共享性"><a href="#3-2-共享性" class="headerlink" title="3.2 共享性"></a>3.2 共享性</h3></li>
+<li><p>共享性表现为操作系统中的资源可供多个并发的程序共同使用,这种共同使用的形式称之为资源共享</p>
+<ul>
+<li><p>互斥共享形式</p>
+<ul>
+<li><p>当资源被程序A占用时，其他想使用的话只能等待</p>
+</li>
+<li><p>只有进程A使用完以后，其他进程才可以使用该资源</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>同时访问形式</p>
+<ul>
+<li><p>某种资源在一段时间内并发地被多个程序访问</p>
+</li>
+<li><p>这种“同时”是宏观的，从宏观去看该资源可以被同时访问</p>
+<h3 id="3-3-虚拟性"><a href="#3-3-虚拟性" class="headerlink" title="3.3 虚拟性"></a>3.3 虚拟性</h3></li>
+</ul>
+</li>
+<li><p>虚拟性表现为把一个物理实体转变为若干个逻辑实体</p>
+</li>
+<li><p>物理实体是真实存在的，逻辑实体是虚拟的</p>
+</li>
+<li><p>虚拟的技术主要有时分复用技术和空分复用技术</p>
+<ul>
+<li>时分复用技术<ul>
+<li>资源在时间上进行复用，不同程序并发使用<ul>
+<li>多道程序分时使用计算机的硬件资源</li>
+<li>提高资源的利用率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>空分复用技术<ul>
+<li>空分复用技术用来实现虚拟磁盘、虚拟内存等</li>
+<li>提高资源的利用率，提升编程效率</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-异步性"><a href="#3-4-异步性" class="headerlink" title="3.4 异步性"></a>3.4 异步性</h3></li>
+<li><p>在多道程序环境下，允许多个进程并发执行</p>
+</li>
+<li><p>进程在使用资源时可能需要等待或放弃</p>
+</li>
+<li><p>进程的执行并不是一气呵成的，而是以走走停停的形式推进 (进程以不可预知的速度向前推进)</p>
+</li>
+</ul>
+<h1 id="2-进程管理之进程实体"><a href="#2-进程管理之进程实体" class="headerlink" title="2.进程管理之进程实体"></a>2.进程管理之进程实体</h1><h2 id="2-1-为什么需要进程"><a href="#2-1-为什么需要进程" class="headerlink" title="2.1 为什么需要进程"></a>2.1 为什么需要进程</h2><p>◆ 没有配置OS之前，资源属于当前运行的程序</p>
+<p>◆ 配置OS之后，引入多道程序设计的概念</p>
+<p>◆ 合理的隔离资源、运行环境，提升资源利用</p>
+<p>◆ 进程是系统进行资源分配和调度的基本单位</p>
+<p>◆ 进程作为程序独立运行的载体保障程序正常执行</p>
+<p>◆ 进程的存在使得操作系统资源的利用率大幅提升</p>
+<h2 id="2-2-进程的实体"><a href="#2-2-进程的实体" class="headerlink" title="2.2 进程的实体"></a>2.2 进程的实体</h2><h3 id="2-2-1-进程控制块（PCB）"><a href="#2-2-1-进程控制块（PCB）" class="headerlink" title="2.2.1 进程控制块（PCB）"></a>2.2.1 进程控制块（PCB）</h3><p>◆ PCB是操作系统进行调度经常会被读取的信息</p>
+<p>◆ PCB是常驻内存的，存放在系统专门开辟的PCB区域内</p>
+<p>◆ 用于描述和控制进程运行的通用数据结构</p>
+<p>◆ 记录进程当前状态和控制进程运行的全部信息</p>
+<p>◆ PCB的使得进程是能够独立运行的基本单位</p>
+<h4 id="2-2-1-1-进程控制块详解"><a href="#2-2-1-1-进程控制块详解" class="headerlink" title="2.2.1.1 进程控制块详解"></a>2.2.1.1 进程控制块详解</h4><ul>
+<li>标识符：标识符唯一标记一个进程，用于区别其他进程</li>
+<li>状态： 标记进程的进程状态，如：运行态</li>
+<li>程序计数器：进程即将被执行的下一条指令的地址</li>
+<li>内存指针：程序代码、进程数据相关指针</li>
+<li>上下文数据：进程执行时处理器存储的数据</li>
+<li>IO 状态信息：被进程IO操作所占用的文件列表</li>
+<li>记账信息：使用处理器时间、时钟数总和等<ul>
+<li>以上包括了：进程标识符，处理机状态，进程调度信息，进程控制信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-3-进程与线程"><a href="#2-3-进程与线程" class="headerlink" title="2.3 进程与线程"></a>2.3 进程与线程</h2><ul>
+<li><p>进程是系统进行资源分配 和调度的基本单位</p>
+</li>
+<li><p>一个进程可以有一个或多个线程<br>◆ 线程是操作系统进行运行调度的最小单位<br>◆ 包含在进程之中，是进程中实际运行工作的单位进程管理之进程实体<br>◆ 一个进程可以并发多个线程，每个线程执行不同的任务<br>◆ 进程的线程共享进程资源</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>null</th>
+<th align="center">进程</th>
+<th align="right">线程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调度</td>
+<td align="center">独立调度的基本单位</td>
+<td align="right">不拥有资源</td>
+</tr>
+<tr>
+<td>调度</td>
+<td align="center">独立调度的基本单位</td>
+<td align="right">独立调度的最小单位</td>
+</tr>
+<tr>
+<td>系统开销</td>
+<td align="center">进程系统开销大</td>
+<td align="right">线程系统开销小</td>
+</tr>
+<tr>
+<td>通信</td>
+<td align="center">进程IPC</td>
+<td align="right">读写同一进程数据通信</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-1-进程管理之五状态模型"><a href="#2-3-1-进程管理之五状态模型" class="headerlink" title="2.3.1 进程管理之五状态模型"></a>2.3.1 进程管理之五状态模型</h3><ul>
+<li><p>就绪状态</p>
+<ul>
+<li>当进程被分配到除CPU以外所有必要的资源后<br>只要再获得CPU的使用权，就可以立即运行<br>其他资源都准备好、只差CPU资源的状态为就绪状态<br>在一个系统中多个处于就绪状态的进程通常排成一个队列</li>
+</ul>
+</li>
+<li><p>执行状态</p>
+<ul>
+<li>进程获得CPU，其程序正在执行称为执行状态<br> 在单处理机中，在某个时刻只能有一个进程是处于执行状态</li>
+</ul>
+</li>
+<li><p>阻塞状态</p>
+<ul>
+<li>进程因某种原因如：其他设备未就绪而无法继续执行<br>从而放弃CPU的状态称为阻塞状态</li>
+</ul>
+</li>
+<li><p>创建状态</p>
+<ul>
+<li>创建进程时拥有PCB但其他资源尚未就绪的状态称为创建状态<br>操作系统提供fork函数接口创建进程</li>
+</ul>
+</li>
+<li><p>终止状态</p>
+<ul>
+<li>进程结束由系统清理或者归还PCB的状态称为终止状态</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-2-进程管理之进程同步"><a href="#2-3-2-进程管理之进程同步" class="headerlink" title="2.3.2 进程管理之进程同步"></a>2.3.2 进程管理之进程同步</h3><h4 id="2-3-2-1-为什么需要进程间同步"><a href="#2-3-2-1-为什么需要进程间同步" class="headerlink" title="2.3.2.1 为什么需要进程间同步"></a>2.3.2.1 为什么需要进程间同步</h4><ul>
+<li>消费者和生产者问题，哲学家问题</li>
+<li>根源问题是：彼此相互之间没有通信</li>
+<li>对竞争资源在多进程间进行使用次序的协调</li>
+<li>使得并发执行的多个进程之间可以有效使用资源和相互合作</li>
+</ul>
+<h4 id="2-3-2-2-进程间同步的原则"><a href="#2-3-2-2-进程间同步的原则" class="headerlink" title="2.3.2.2 进程间同步的原则"></a>2.3.2.2 进程间同步的原则</h4><ul>
+<li><p>临界资源：临界资源指的是一些虽作为共享资源却又无法同时被多个线程共同 访问的共享资源。当有进程在使用临界资源时，其他进程必须依据 操作系统的同步机制等待占用进程释放该共享资源才可重新竞争使 用共享资源</p>
+</li>
+<li><p>空闲让进：资源无占用，允许使用</p>
+</li>
+<li><p>忙则等待：资源有占用，请求进程等待</p>
+</li>
+<li><p>有限等待：保证有限等待时间能够使用资源</p>
+</li>
+<li><p>让权等待：等待时，进程需要让出CPU</p>
+</li>
+<li><p>进程同步的方法</p>
+<p>◆ 消息队列<br>◆ 共享存储<br>◆ 信号量</p>
+</li>
+</ul>
+<h4 id="2-3-2-3-线程同步"><a href="#2-3-2-3-线程同步" class="headerlink" title="2.3.2.3 线程同步"></a>2.3.2.3 线程同步</h4><ul>
+<li><p>当多个线程并发使用进程资源时，易产生线程同步问题</p>
+</li>
+<li><p>线程同步的方法：</p>
+<p>◆ 互斥量 </p>
+<p>◆ 读写锁 </p>
+<p>◆ 自旋锁 </p>
+<p>◆ 条件变量</p>
+</li>
+</ul>
+<h3 id="2-3-3-作业管理之进程调度"><a href="#2-3-3-作业管理之进程调度" class="headerlink" title="2.3.3 作业管理之进程调度"></a>2.3.3 作业管理之进程调度</h3><h4 id="2-3-3-1-进程调度概述"><a href="#2-3-3-1-进程调度概述" class="headerlink" title="2.3.3.1  进程调度概述"></a>2.3.3.1  进程调度概述</h4><p><strong>进程调度是指计算机通过决策决定哪个就绪进程可以获得CPU使用权</strong></p>
+<p>即：</p>
+<p>   ◆ 保留旧进程的运行信息，请出旧进程（收拾包袱）<br>   ◆ 选择新进程，准备运行环境并分配CPU（新进驻）</p>
+<p>进程的调度机制：</p>
+<ul>
+<li>就绪队列的排队机制：将就绪进程按照一定的方式排成队列，以便调度程序可以最快找到就绪进程</li>
+<li>选择运行进程的委派机制：调度程序以一定的策略选择就绪进程，将CPU资源分配给它</li>
+<li>新老进程的上下文切换机制：保存当前进程的上下文信息，装入被委派执行进程的运行上下文</li>
+</ul>
+<p>进程的调度机制也可分为：</p>
+<ul>
+<li><p>非抢占式的调度</p>
+<p>◆ 处理器一旦分配给某个进程，就让该进程一直使用下去<br>◆ 调度程序不以任何原因抢占正在被使用的处理器<br>◆ 直到进程完成工作或因为IO阻塞才会让出处理器</p>
+</li>
+<li><p>抢占式的调度</p>
+<p>◆ 允许调度程序以一定的策略暂停当前运行的进程<br>◆ 保存好旧进程的上下文信息，分配处理器给新进程</p>
+</li>
+</ul>
+<h4 id="2-3-3-2-进程调度算法"><a href="#2-3-3-2-进程调度算法" class="headerlink" title="2.3.3.2 进程调度算法"></a>2.3.3.2 进程调度算法</h4><ul>
+<li><p>先来先服务调度算法</p>
+</li>
+<li><p>短进程优先调度算法</p>
+<p>◆ 调度程序优先选择就绪队列中估计运行时间最短的进程<br>◆ 短进程优先调度算法不利于长作业进程的执行</p>
+</li>
+<li><p>高优先权优先调度算法</p>
+<p>◆ 进程附带优先权，调度程序优先选择权重高的进程<br>◆ 高优先权优先调度算法使得紧迫的任务可以优先处理</p>
+</li>
+<li><p>时间片轮转调度算法</p>
+<p>◆ 按先来先服务的原则排列就绪进程<br>◆ 每次从队列头部取出待执行进程，分配一个时间片执行<br>◆ 是相对公平的调度算法，但不能保证及时响应用户</p>
+</li>
+</ul>
+<h3 id="2-3-4-作业管理之死锁"><a href="#2-3-4-作业管理之死锁" class="headerlink" title="2.3.4 作业管理之死锁"></a>2.3.4 作业管理之死锁</h3><p><strong>什么是死锁</strong>：死锁是指两个或两个以上的进程在执行过程 中，由于竞争资源或者由于彼此通信而造成 的一种阻塞的现象，若无外力作用，它们都 将无法推进下去。此时称系统处于死锁状态 或系统产生了死锁，这些永远在互相等待的 进程称为死锁进程。</p>
+<h4 id="2-3-4-1-死锁的产生"><a href="#2-3-4-1-死锁的产生" class="headerlink" title="2.3.4.1 死锁的产生"></a>2.3.4.1 死锁的产生</h4><ul>
+<li><p>竞争资源：</p>
+<p>◆ 共享资源数量不满足各个进程需求<br>◆ 各个进程之间发生资源进程导致死锁</p>
+</li>
+<li><p>进程调度顺序不当</p>
+</li>
+<li><p>死锁的四个必要条件</p>
+<ul>
+<li><p>互斥条件</p>
+<p>◆ 进程对资源的使用是排他性的使用<br>◆ 某资源只能由一个进程使用，其他进程需要使用只能等待</p>
+</li>
+<li><p>请求保持条件</p>
+<p>◆ 进程至少保持一个资源，又提出新的资源请求<br>◆ 新资源被占用，请求被阻塞<br>◆ 被阻塞的进程不释放自己保持的资源</p>
+</li>
+<li><p>不可剥夺条件</p>
+<p>◆ 进程获得的资源在未完成使用前不能被剥夺<br>◆ 获得的资源只能由进程自身释放</p>
+</li>
+<li><p>环路等待条件</p>
+<p>◆ 发生死锁时，必然存在进程-资源环形链</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-4-2-死锁的处理"><a href="#2-3-4-2-死锁的处理" class="headerlink" title="2.3.4.2 死锁的处理"></a>2.3.4.2 死锁的处理</h4><ul>
+<li><p>预防死锁的方法（破坏四个必要条件之一）    </p>
+<ul>
+<li><p>摒弃请求保持条件</p>
+<p>◆ 系统规定进程运行之前，一次性申请所有需要的资源<br>◆ 进程在运行期间不会提出资源请求，从而摒弃请求保持条件</p>
+</li>
+<li><p>摒弃不可剥夺条件</p>
+<p>◆ 当一个进程请求新的资源得不到满足时，必须释放占有的资源<br>◆ 进程运行时占有的资源可以被释放，意味着可以被剥夺</p>
+</li>
+<li><p>摒弃环路等待条件</p>
+<p>◆ 可用资源线性排序，申请必须按照需要递增申请<br>◆ 线性申请不再形成环路，从而摒弃了环路等待条件</p>
+</li>
+</ul>
+</li>
+<li><p>银行家算法</p>
+<ul>
+<li>是一个可操作的著名的避免死锁的算法</li>
+<li>以银行借贷系统分配策略为基础的算法</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-存储管理"><a href="#3-存储管理" class="headerlink" title="3. 存储管理"></a>3. 存储管理</h1><h2 id="3-1-存储管理之内存分配与回收"><a href="#3-1-存储管理之内存分配与回收" class="headerlink" title="3.1 存储管理之内存分配与回收"></a>3.1 存储管理之内存分配与回收</h2><h3 id="3-1-1内存分配的过程"><a href="#3-1-1内存分配的过程" class="headerlink" title="3.1.1内存分配的过程"></a>3.1.1内存分配的过程</h3><ul>
+<li><p>单一连续分配</p>
+<p>◆ 单一连续分配是最简单的内存分配方式<br>◆ 只能在单用户、单进程的操作系统中使用</p>
+</li>
+<li><p>固定分区分配</p>
+<p>◆ 固定分区分配是支持多道程序的最简单存储分配方式<br>◆ 内存空间被划分为若干固定大小的区域<br>◆ 每个分区只提供给一个程序使用，互不干扰</p>
+</li>
+<li><p>动态分区分配</p>
+<p>◆ 根据进程实际需要，动态分配内存空间<br>◆ 涉及相关数据结构、分配算法</p>
+</li>
+</ul>
+<h3 id="3-1-2-内存回收的过程"><a href="#3-1-2-内存回收的过程" class="headerlink" title="3.1.2 内存回收的过程"></a>3.1.2 内存回收的过程</h3><ul>
+<li><p>当回收区位于空闲区之下时</p>
+<p>◆ 不需要新建空闲链表节点<br>◆ 只需要把空闲区1的容量增大为空闲区即可</p>
+</li>
+<li><p>当回收区位于空闲区之上时</p>
+<p>◆ 将回收区与空闲区合并<br>◆ 新的空闲区使用回收区的地址</p>
+</li>
+<li><p>当回收区位于两块空闲区之中时</p>
+<p>◆ 将空闲区1、空闲区2和回收区合并<br>◆ 新的空闲区使用上空闲区的地址</p>
+</li>
+<li><p>当回收区不与空闲区相邻时</p>
+<p>◆ 为回收区创建新的空闲节点<br>◆ 插入到相应的空闲区链表中去</p>
+</li>
+</ul>
+<h2 id="3-2-存储管理之段页式存储管理"><a href="#3-2-存储管理之段页式存储管理" class="headerlink" title="3.2 存储管理之段页式存储管理"></a>3.2 存储管理之段页式存储管理</h2><h3 id="3-2-1-页式存储管理"><a href="#3-2-1-页式存储管理" class="headerlink" title="3.2.1 页式存储管理"></a>3.2.1 页式存储管理</h3><p>◆ 将进程逻辑空间等分成若干大小的页面<br>◆ 相应的把物理内存空间分成与页面大小的物理块<br>◆ 以页面为单位把进程空间装进物理内存中分散的物理块</p>
+<h3 id="3-2-2-段式存储管理"><a href="#3-2-2-段式存储管理" class="headerlink" title="3.2.2 段式存储管理"></a>3.2.2 段式存储管理</h3><p>◆ 将进程逻辑空间划分成若干段（非等分）<br>◆ 段的长度由连续逻辑的长度决定（主函数MAIN、子程序段X、子函数Y等）</p>
+<h3 id="3-2-3-段页式存储管理"><a href="#3-2-3-段页式存储管理" class="headerlink" title="3.2.3 段页式存储管理"></a>3.2.3 段页式存储管理</h3><p>◆ 先将逻辑空间按段式管理分成若干段<br>◆ 再把段内空间按页式管理等分成若干页</p>
+<h2 id="3-3-存储管理之虚拟内存"><a href="#3-3-存储管理之虚拟内存" class="headerlink" title="3.3 存储管理之虚拟内存"></a>3.3 存储管理之虚拟内存</h2><h3 id="3-3-1-虚拟内存概述"><a href="#3-3-1-虚拟内存概述" class="headerlink" title="3.3.1 虚拟内存概述"></a>3.3.1 虚拟内存概述</h3><p><strong>为什么需要虚拟内存</strong></p>
+<p>◆ 有些进程实际需要的内存很大，超过物理内存的容量<br>◆ 多道程序设计，使得每个进程可用物理内存更加稀缺<br>◆ 不可能无限增加物理内存，物理内存总有不够的时</p>
+<p><strong>概述</strong></p>
+<p>◆ 虚拟内存是操作系统内存管理的关键技术<br>◆ 使得多道程序运行和大程序运行成为现实<br>◆ 把程序使用内存划分，将部分暂时不使用的内存放置在辅存</p>
+<h3 id="3-3-2-程序的局部性原理"><a href="#3-3-2-程序的局部性原理" class="headerlink" title="3.3.2 程序的局部性原理"></a>3.3.2 程序的局部性原理</h3><p><strong>程序的局部性原理</strong></p>
+<p>局部性原理是指CPU访问存储器时，无论是存取指令 还是存取数据，</p>
+<p>所访问的存储单元都趋于聚集在一个较小的连续区域中。</p>
+<p>◆ 程序运行时，无需全部装入内存，装载部分即可<br>◆ 如果访问页不在内存，则发出缺页中断，发起页面置换<br>◆ 从用户层面看，程序拥有很大的空间，即是虚拟内存</p>
+<h3 id="3-3-3-虚拟内存的置换算法"><a href="#3-3-3-虚拟内存的置换算法" class="headerlink" title="3.3.3 虚拟内存的置换算法"></a>3.3.3 虚拟内存的置换算法</h3><p><strong>算法分为（与CPU和高速缓存的置换算法类似）</strong></p>
+<p>◆ 先进先出算法(FIFO)<br>◆ 最不经常使用算法(LFU)<br>◆ 最近最少使用算法(LRU)</p>
+<p><strong>解决的问题</strong></p>
+<p>◆ 替换策略发生在Cache-主存层次、主存-辅存层次<br>◆ Cache-主存层次的替换策略主要是为了解决速度问题<br>◆ 主存-辅存层次主要是为了解决容量问题</p>
+<h2 id="3-4-操作系统的文件管理"><a href="#3-4-操作系统的文件管理" class="headerlink" title="3.4 操作系统的文件管理"></a>3.4 操作系统的文件管理</h2><h3 id="3-4-1-文件的逻辑结构"><a href="#3-4-1-文件的逻辑结构" class="headerlink" title="3.4.1 文件的逻辑结构"></a>3.4.1 文件的逻辑结构</h3><h4 id="3-4-1-1-逻辑结构的文件类型"><a href="#3-4-1-1-逻辑结构的文件类型" class="headerlink" title="3.4.1.1 逻辑结构的文件类型"></a>3.4.1.1 逻辑结构的文件类型</h4><ul>
+<li><p>有结构文件</p>
+<p>◆ 文件内容由定长记录和可变长记录组成<br>◆ 定长记录存储文件格式、文件描述等结构化数据项<br>◆ 可变长记录存储文件具体内容</p>
+</li>
+<li><p>无结构文件</p>
+<p>◆ 也称为流式文件<br>◆ 文件内容长度以字节为单位</p>
+</li>
+</ul>
+<h4 id="3-4-1-2-顺序文件"><a href="#3-4-1-2-顺序文件" class="headerlink" title="3.4.1.2 顺序文件"></a>3.4.1.2 顺序文件</h4><p>◆ 顺序文件是指按顺序存放在存储介质中的文件<br>◆ 磁带的存储特性使得磁带文件只能存储顺序文件<br>◆ 顺序文件是所有逻辑文件当中存储效率最高的</p>
+<p><strong>索引文件与可变长文件</strong></p>
+<p>◆ 可变长文件不适合使用顺序文件格式存储<br>◆ 索引文件是为了解决可变长文件存储而发明的一种文件格式<br>索引文件<br>◆ 索引文件需要配合索引表完成存储的操作</p>
+<h3 id="3-4-2-辅存的存储空间分配"><a href="#3-4-2-辅存的存储空间分配" class="headerlink" title="3.4.2 辅存的存储空间分配"></a>3.4.2 辅存的存储空间分配</h3><h4 id="3-4-2-1-辅存的分配方式"><a href="#3-4-2-1-辅存的分配方式" class="headerlink" title="3.4.2.1 辅存的分配方式"></a>3.4.2.1 辅存的分配方式</h4><ul>
+<li><p>连续分配</p>
+<p>◆ 顺序读取文件内容非常容易，速度很快<br>◆ 对存储要求高，要求满足容量的连续存储空间</p>
+</li>
+<li><p>链接分配</p>
+<p>◆ 链接分配可以将文件存储在离散的盘块中<br>◆ 需要额外的存储空间存储文件的盘块链接顺序</p>
+<ul>
+<li><p>隐式连接分配</p>
+<p>◆ 隐式分配的下一个链接指向存储在当前盘块内<br>◆ 隐式分配适合顺序访问，随机访问效率很低<br>◆ 可靠性差，任何一个链接出问题都影响整个文件</p>
+</li>
+<li><p>显示连接分配</p>
+<p>◆ 解决隐式连接分配可靠性差的问题，将盘块里面指定下一个</p>
+<p>盘块的位置更改为专门维护一张表FAT（File Allocation Table）</p>
+<p>来记录每个盘块的位置</p>
+<p>◆ 不支持高效的直接存储（FAT记录项多）<br>◆ 检索时FAT表占用较大的存储空间（需要将整个FAT加载到内存）</p>
+</li>
+</ul>
+</li>
+<li><p>索引分配</p>
+<p>◆ 把文件的所有盘块集中存储（索引）<br>◆ 读取某个文件时，将文件索引读取进内存即可</p>
+<p>◆ 每个文件拥有一个索引块，记录所有盘块信息<br>◆ 索引分配方式支持直接访问盘块<br>◆ 文件较大时，索引分配方式具有明显优势</p>
+</li>
+</ul>
+<h4 id="3-4-2-2-存储空间管理"><a href="#3-4-2-2-存储空间管理" class="headerlink" title="3.4.2.2 存储空间管理"></a>3.4.2.2 存储空间管理</h4><ul>
+<li><p>空闲表</p>
+<p>◆ 空闲盘区的分配与内存分配类似<br>◆ 首次适应算法、循环适应算法等<br>◆ 回收过程也与内存回收类似</p>
+</li>
+<li><p>空闲链表</p>
+<p>◆ 空闲链表法把所有空闲盘区组成一个空闲链表<br>◆ 每个链表节点存储空闲盘块和空闲的数目</p>
+</li>
+<li><p>位示图</p>
+<p>◆ 位示图维护成本很低<br>◆ 位示图可以非常容易找到空闲盘块<br>◆ 位示图使用0/1比特位，占用空间很小</p>
+</li>
+</ul>
+<h3 id="3-4-3-目录管理"><a href="#3-4-3-目录管理" class="headerlink" title="3.4.3 目录管理"></a>3.4.3 目录管理</h3><ul>
+<li>目录树：任何文件或目录都只有唯一路径</li>
+</ul>
+<h2 id="3-5-操作系统的设备管理"><a href="#3-5-操作系统的设备管理" class="headerlink" title="3.5 操作系统的设备管理"></a>3.5 操作系统的设备管理</h2><h3 id="3-5-1-广义的IO设备"><a href="#3-5-1-广义的IO设备" class="headerlink" title="3.5.1 广义的IO设备"></a>3.5.1 广义的IO设备</h3><p>对CPU而言，凡是对CPU进行数据输入的都是输入设备</p>
+<p>对CPU而言，凡是CPU进行数据输出的都是输出设备</p>
+<p><strong>分类</strong></p>
+<p>◆ 按使用特性分类<br>◆ 按信息交换的单位分类<br>◆ 按设备的共享属性分类<br>◆ 按传输速率分类</p>
+<h3 id="3-5-2-IO设备的缓冲区"><a href="#3-5-2-IO设备的缓冲区" class="headerlink" title="3.5.2  IO设备的缓冲区"></a>3.5.2  IO设备的缓冲区</h3><p><strong>解决</strong></p>
+<p>CPU与IO设备的速率不匹配的问题</p>
+<p>◆ 减少CPU处理IO请求的频率<br>◆ 提高CPU与IO设备之间的并行性</p>
+<p>◆ 专用缓冲区只适用于特定的IO进程<br>◆ 当这样的IO进程比较多时，对内存的消耗也很大<br>◆ 操作系统划出可供多个进程使用的公共缓冲区，称之为缓冲池</p>
+<h3 id="3-5-3-SPOOLing技术"><a href="#3-5-3-SPOOLing技术" class="headerlink" title="3.5.3 SPOOLing技术"></a>3.5.3 SPOOLing技术</h3><p>◆ 是关于慢速字符设备如何与计算机主机交换信息的一种技术<br>◆ 利用高速共享设备将低速的独享设备模拟为高速的共享设备<br>◆ 逻辑上，系统为每一个用户都分配了一台独立的高速独享设备</p>
+<p><strong>SPOOLing技术把同步调用低速设备改为异步调用</strong></p>
+<p>◆ 在输入、输出之间增加了排队转储环节（输入井、输出井）<br>◆ SPOOLing负责输入（出）井与低速设备之间的调度<br>◆ 逻辑上，进程直接与高速设备交互，减少了进程的等待时间</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">黄熙</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huangxi1020.github.io/2020/08/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/">http://huangxi1020.github.io/2020/08/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">黄熙</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">计算机基础</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/08/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E9%98%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="数据库进阶">
+                        
+                        <span class="card-title">数据库进阶</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1.SQL分类1.1  DDL （数据定义问题）​    数据定义语言 - Data Definition Language用来定义数据库的对象， 如数据表、 视图、 索引 等
+1.2  DML （数据操纵问题）  数据处理语言 - Dat
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            黄熙
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">关于数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/04/%E7%BC%96%E7%A0%81%E7%9A%84%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="编码的优化建议">
+                        
+                        <span class="card-title">编码的优化建议</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            代码优化1. 尽可能使用局部变量调用方法时传递的参数以及在调用中创建的临时变量都保存在栈中速度较快，其他变 量，如静态变量、实例变量等，都在堆中创建，速度较慢。另外，栈中创建的变量，随 着方法的运行结束，这些内容就没了，不需要额外的垃圾回收
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            黄熙
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/jvm%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">jvm优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">黄熙</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/huangxi1020" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1014231151@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1014231151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1014231151" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/u/5665404201" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/u/5665404201" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/huang-xi-19-10" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/huang-xi-19-10" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
