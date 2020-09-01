@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Tomcat8的优化, 黄熙的博客">
+    <meta name="keywords" content="java枚举, 黄熙的博客">
     <meta name="description" content="在此分享自己的心得，技术博客，qq1014231151">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Tomcat8的优化 | 黄熙的博客</title>
+    <title>java枚举 | 黄熙的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Tomcat8的优化</h1>
+                    <h1 class="description center-align post-title">java枚举</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/jvm%E7%9A%84%E4%BC%98%E5%8C%96/">
-                                <span class="chip bg-color">jvm的优化</span>
+                            <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">java基础</span>
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-04
+                    2020-08-20
                 </div>
                 
 
@@ -399,99 +399,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Tomcat8优化"><a href="#Tomcat8优化" class="headerlink" title="Tomcat8优化"></a>Tomcat8优化</h1><h2 id="1-Tomcat配置优化"><a href="#1-Tomcat配置优化" class="headerlink" title="1.Tomcat配置优化"></a>1.Tomcat配置优化</h2><h3 id="1-1-1、部署安装tomcat8"><a href="#1-1-1、部署安装tomcat8" class="headerlink" title="1.1.1、部署安装tomcat8"></a>1.1.1、部署安装tomcat8</h3><ul>
-<li><p>1.修改配置文件，配置tomcat的管理用户 vim tomcat‐users.xml </p>
-<p>vim tomcat‐users.xml </p>
-</li>
-<li><p>2.写入如下内容：</p>
-<role rolename="manager"/>
-<role rolename="manager-gui"/>
-<role rolename="admin"/>
-<role rolename="admin-gui"/>
-<user username="tomcat" password="tomcat" roles="admin-gui,admin,manager-gui,manager"/>
-</li>
-<li><p>3.保存退出  </p>
-</li>
-<li><p>4.如果是tomcat7，配置了tomcat用户就可以登录系统了，但是tomcat8中不行，还需要修改 另一个配置文件，否则访问不了，提示403 </p>
-<p>vim webapps/manager/META‐INF/context.xml</p>
-</li>
-<li><p>5.将&lt;Valve的内容注释掉</p>
-<Context antiResourceLocking="false" privileged="true" >
-<!‐‐ <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> ‐‐>
-<Manager sessionAttributeValueClassNameFilter="java\.lang\.
-(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.Cs
-rfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
-</Context>
-</li>
-<li><p>6.保存退出即可</p>
-</li>
-<li><p>7.启动tomcat  并在浏览器中访问</p>
-</li>
-<li><p>8.点击“Server Status”，输入用户名、密码进行登录，tomcat/tomcat </p>
-<p>进入之后即可看到服务的信息。 </p>
-</li>
-</ul>
-<h3 id="1-1-2、禁用AJP连接"><a href="#1-1-2、禁用AJP连接" class="headerlink" title="1.1.2、禁用AJP连接"></a>1.1.2、禁用AJP连接</h3><ul>
-<li><p>什么是AJP呢？ AJP（Apache JServer Protocol） AJPv13协议是面向包的。WEB服务器和Servlet容器通过TCP连接来交互；为了节省 SOCKET创建的昂贵代价，WEB服务器会尝试维护一个永久TCP连接到servlet容器，并且 在多个请求和响应周期过程会重用连接。 </p>
-</li>
-<li><p>我们一般是使用Nginx+tomcat的架构，所以用不着AJP协议，所以把AJP连接器禁用。 修改conf下的server.xml文件，将AJP服务禁用掉即可 </p>
-</li>
-</ul>
-<p>‘<!--   <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /> -->’</p>
-<h3 id="1-1-3、执行器（线程池）"><a href="#1-1-3、执行器（线程池）" class="headerlink" title="1.1.3、执行器（线程池）"></a>1.1.3、执行器（线程池）</h3><ul>
-<li><p>在tomcat中每一个用户请求都是一个线程，所以可以使用线程池提高性能 </p>
-</li>
-<li><p>修改server.xml文件： </p>
-<p>  &lt;!‐‐将注释打开‐‐&gt;<br>  <Executor name="tomcatThreadPool" namePrefix="catalina‐exec‐"
-  maxThreads="500" minSpareThreads="50"
-  prestartminSpareThreads="true" maxQueueSize="100"/><br>  &lt;!‐‐在Connector中设置executor属性指向上面的执行器‐‐&gt;<br>  <Connector executor="tomcatThreadPool" port="8080" protocol="HTTP/1.1"
-  connectionTimeout="20000"
-  redirectPort="8443" /></p>
-</li>
-<li><p>单纯靠提升线程数量是不能一直得到性能提升，需要一直不断调试 ，找到最佳值</p>
-</li>
-</ul>
-<h3 id="1-1-4、3种运行模式"><a href="#1-1-4、3种运行模式" class="headerlink" title="1.1.4、3种运行模式"></a>1.1.4、3种运行模式</h3><ul>
-<li><ol>
-<li><p>bio </p>
-<p>默认的模式,性能非常低下,没有经过任何优化处理和支持. </p>
-</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>nio<br>nio(new I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及 其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio 也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性 能。 </li>
-</ol>
-</li>
-<li><ol start="3">
-<li>apr 安装起来最困难,但是从操作系统级别来解决异步的IO问题,大幅度的提高性能。推荐使用nio，不过，在tomcat8中有最新的nio2，速度更快，建议使用nio2 </li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>设置nio2：</p>
-<p><Connector executor="tomcatThreadPool" port="8080"
-protocol="org.apache.coyote.http11.Http11Nio2Protocol"
-connectionTimeout="20000"
-redirectPort="8443" /></p>
-</li>
-</ul>
-<h2 id="2-调整JVM参数进行优化"><a href="#2-调整JVM参数进行优化" class="headerlink" title="2. 调整JVM参数进行优化"></a>2. 调整JVM参数进行优化</h2><h3 id="2-1-1、设置并行垃圾回收器"><a href="#2-1-1、设置并行垃圾回收器" class="headerlink" title="2.1.1、设置并行垃圾回收器"></a>2.1.1、设置并行垃圾回收器</h3><ul>
-<li>年轻代、老年代均使用并行收集器，初始堆内存64M，最大堆内存512M </li>
-</ul>
-<p>JAVA_OPTS=”‐XX:+UseParallelGC ‐XX:+UseParallelOldGC ‐Xms64m ‐Xmx512m ‐ XX:+PrintGCDetails ‐XX:+PrintGCTimeStamps ‐XX:+PrintGCDateStamps ‐ XX:+PrintHeapAtGC ‐Xloggc:../logs/gc.log” </p>
-<ul>
-<li>此方法要通过调整年轻代大小来达到最佳的效果</li>
-</ul>
-<h3 id="2-1-2、-设置G1垃圾回收器"><a href="#2-1-2、-设置G1垃圾回收器" class="headerlink" title="2.1.2、 设置G1垃圾回收器"></a>2.1.2、 设置G1垃圾回收器</h3><ul>
-<li><p>设置了最大停顿时间100毫秒，初始堆内存128m，最大堆内存1024m</p>
-<p>JAVA_OPTS=”‐XX:+UseG1GC ‐XX:MaxGCPauseMillis=100 ‐Xms128m   ‐Xmx1024m ‐</p>
-<p>XX:+PrintGCDetails ‐XX:+PrintGCTimeStamps ‐XX:+PrintGCDateStamps ‐<br>XX:+PrintHeapAtGC ‐Xloggc:../logs/gc.log”</p>
-</li>
-</ul>
-<blockquote>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>​        <strong>对tomcat性能优化就是需要不断的进行调整参数，然后 测试结果，可能会调优也可能会调差，这时就需要借助于gc的可视化工具来看gc的情 况。再帮我我们做出决策应该调整哪些参数</strong></p>
+                <h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><blockquote>
+<p>列举，罗列</p>
+<p>枚举是代表这样一系列的类型，这些类型有一个非常明显的特征：他们的对象是有限的几个</p>
 </blockquote>
+<p>例如：Week（星期），可以限定Week类型的对象只有7个。Season（季节），可以限定对象为4 个。</p>
+<p>又例如：员工状态，可以限定为：空闲，忙，休假，离职。</p>
+<p><strong>枚举类是JDK1.5之后引入的。</strong></p>
+<p>JDK1.5之前的实现枚举需求（要点：整个系统中，某个类型的对象是有限的几个不多也不少）</p>
+<p>（1）限制使用者随意的创建对象，即构造器私有化</p>
+<p>（2）要</p>
 
             </div>
             <hr/>
@@ -517,7 +434,7 @@ redirectPort="8443" /></p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huangxi1020.github.io/2020/08/04/Tomcat8%E7%9A%84%E4%BC%98%E5%8C%96/">http://huangxi1020.github.io/2020/08/04/Tomcat8%E7%9A%84%E4%BC%98%E5%8C%96/</a>
+                    <a href="http://huangxi1020.github.io/2020/08/20/java%E6%9E%9A%E4%B8%BE/">http://huangxi1020.github.io/2020/08/20/java%E6%9E%9A%E4%B8%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +472,8 @@ redirectPort="8443" /></p>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/jvm%E7%9A%84%E4%BC%98%E5%8C%96/">
-                                    <span class="chip bg-color">jvm的优化</span>
+                                <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">java基础</span>
                                 </a>
                             
                         </div>
@@ -728,28 +645,24 @@ redirectPort="8443" /></p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/08/04/%E7%9C%8B%E6%87%82Java%E5%BA%95%E5%B1%82%E5%AD%97%E8%8A%82%E7%A0%81/">
+                <a href="/2020/08/21/Mybatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="看懂Java底层字节码">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
                         
-                        <span class="card-title">看懂Java底层字节码</span>
+                        <span class="card-title">Mybatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.查看class文件的字节码内容public static void main(String[] args) &#123;
-    int a = 2;
-    int b = 5;
-    int c = b ‐ a;
-    Syst
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
                         </span>
                         <span class="publish-author">
                             
@@ -762,8 +675,8 @@ redirectPort="8443" /></p>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/jvm%E8%B0%83%E4%BC%98/">
-                        <span class="chip bg-color">jvm调优</span>
+                    <a href="/tags/java%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">java框架</span>
                     </a>
                     
                 </div>
@@ -777,32 +690,27 @@ redirectPort="8443" /></p>
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E8%AE%A1%E7%AE%97%E7%AF%87/">
+                <a href="/2020/08/20/java%E4%B8%AD%E7%9A%84VO%E3%80%81PO%E3%80%81BO%E3%80%81DAO%E3%80%81POJO/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="计算机组成原理之计算篇">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="java中的VO、PO、BO、DAO、POJO">
                         
-                        <span class="card-title">计算机组成原理之计算篇</span>
+                        <span class="card-title">java中的VO、PO、BO、DAO、POJO</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 进制运算的基本知识1. 进制运算的基础1.进制的概述
-进制的定义 
-1.进位制是一种记数方式，亦称进位计数法或位值计数法 
-2.使用的数字符号的数目称为这种进位制的基数或底数 
-3.有限种数字符号来表示无限的数值 
-
-常见的进制 
-
-
+                            这些对象一直有点搞不清楚，以后再搞不清楚到时候就可以上博客来看一看
+\java中的vo,po,to,bo,pojo,dao**
+O/R Mapping:Object Relational Mapping
+将对象与关系数据库绑定，用对象来表示
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
                             </span>
                         <span class="publish-author">
                             
@@ -815,8 +723,8 @@ redirectPort="8443" /></p>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/java%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">java中的对象</span>
                     </a>
                     
                 </div>

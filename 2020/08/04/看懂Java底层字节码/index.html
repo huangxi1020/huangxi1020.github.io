@@ -399,19 +399,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-查看class文件的字节码内容"><a href="#1-查看class文件的字节码内容" class="headerlink" title="1.查看class文件的字节码内容"></a>1.查看class文件的字节码内容</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> c = b ‐ a;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+                <h2 id="1-查看class文件的字节码内容"><a href="#1-查看class文件的字节码内容" class="headerlink" title="1.查看class文件的字节码内容"></a>1.查看class文件的字节码内容</h2><pre><code>public static void main(String[] args) &#123;
+    int a = 2;
+    int b = 5;
+    int c = b ‐ a;
+    System.out.println(c);
+    &#125;
+&#125;</code></pre>
 <p> <strong>1.通过javap命令查看class文件的字节码内容 得到以下内容</strong></p>
 <blockquote>
 <p> 第一部分：显示了生成这个class的java源文件、版本信息、生成时间等 </p>
 </blockquote>
-<figure class="highlight plain"><figcaption><span>/F:/code/itcast‐jvm/itcast‐jvm‐</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">test&#x2F;target&#x2F;classes&#x2F;cn&#x2F;itcast&#x2F;jvm&#x2F;Test1.class</span><br><span class="line">Last modified 2020‐8‐2; size 577 bytes</span><br><span class="line">MD5 checksum 4214859db3543c0c783ec8a216a4795f</span><br><span class="line">Compiled from &quot;Test1.java&quot;</span><br><span class="line">public class cn.itcast.jvm.Test1</span><br><span class="line">minor version: 0</span><br><span class="line">major version: 52</span><br><span class="line">flags: ACC_PUBLIC, ACC_SUPER&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
-
+<pre><code>Classfile /F:/code/itcast‐jvm/itcast‐jvm‐
+test/target/classes/cn/itcast/jvm/Test1.class
+Last modified 2020‐8‐2; size 577 bytes
+MD5 checksum 4214859db3543c0c783ec8a216a4795f
+Compiled from &quot;Test1.java&quot;
+public class cn.itcast.jvm.Test1
+minor version: 0
+major version: 52
+flags: ACC_PUBLIC, ACC_SUPER</code></pre>
 <blockquote>
 <p>第二部分：显示了该类中所涉及到常量池，共35个常量。 </p>
 </blockquote>
-<figure class="highlight plain"><figcaption><span>pool:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#1 &#x3D; Methodref #5.#23 &#x2F;&#x2F; java&#x2F;lang&#x2F;Object.&quot;&lt;init&gt;&quot;:</span><br><span class="line">()V</span><br><span class="line">#2 &#x3D; Fieldref #24.#25 &#x2F;&#x2F;</span><br><span class="line">java&#x2F;lang&#x2F;System.out:Ljava&#x2F;io&#x2F;PrintStream;</span><br><span class="line">#3 &#x3D; Methodref #26.#27 &#x2F;&#x2F; java&#x2F;io&#x2F;PrintStream.println:</span><br><span class="line">(I)V</span><br><span class="line">#4 &#x3D; Class #28 &#x2F;&#x2F; cn&#x2F;itcast&#x2F;jvm&#x2F;Test1</span><br><span class="line">#5 &#x3D; Class #29 &#x2F;&#x2F; java&#x2F;lang&#x2F;Object</span><br><span class="line">#6 &#x3D; Utf8 &lt;init&gt;</span><br><span class="line">#7 &#x3D; Utf8 ()V</span><br><span class="line">#8 &#x3D; Utf8 Code</span><br><span class="line">#9 &#x3D; Utf8 LineNumberTable</span><br><span class="line">#10 &#x3D; Utf8 LocalVariableTable</span><br><span class="line">#11 &#x3D; Utf8 this</span><br><span class="line">#12 &#x3D; Utf8 L&#x2F;jvm&#x2F;Test1;</span><br><span class="line">#13 &#x3D; Utf8 main</span><br><span class="line">#14 &#x3D; Utf8 ([Ljava&#x2F;lang&#x2F;String;)V</span><br><span class="line">#15 &#x3D; Utf8 args</span><br><span class="line">#16 &#x3D; Utf8 [Ljava&#x2F;lang&#x2F;String;</span><br><span class="line">#17 &#x3D; Utf8 a</span><br><span class="line">#18 &#x3D; Utf8 I</span><br><span class="line">#19 &#x3D; Utf8 b</span><br><span class="line">#20 &#x3D; Utf8 c</span><br><span class="line">#21 &#x3D; Utf8 SourceFile</span><br><span class="line">#22 &#x3D; Utf8 Test1.java</span><br><span class="line">#23 &#x3D; NameAndType #6:#7 &#x2F;&#x2F; &quot;&lt;init&gt;&quot;:()V</span><br><span class="line">#24 &#x3D; Class #30 &#x2F;&#x2F; java&#x2F;lang&#x2F;System</span><br><span class="line">#25 &#x3D; NameAndType #31:#32 &#x2F;&#x2F; out:Ljava&#x2F;io&#x2F;PrintStream;</span><br><span class="line">#26 &#x3D; Class #33 &#x2F;&#x2F; java&#x2F;io&#x2F;PrintStream</span><br><span class="line">#27 &#x3D; NameAndType #34:#35 &#x2F;&#x2F; println:(I)V</span><br><span class="line">#28 &#x3D; Utf8 cn&#x2F;itcast&#x2F;jvm&#x2F;Test1</span><br><span class="line">#29 &#x3D; Utf8 java&#x2F;lang&#x2F;Object</span><br><span class="line">#30 &#x3D; Utf8 java&#x2F;lang&#x2F;System</span><br><span class="line">#31 &#x3D; Utf8 out</span><br><span class="line">#32 &#x3D; Utf8 Ljava&#x2F;io&#x2F;PrintStream;</span><br><span class="line">#33 &#x3D; Utf8 java&#x2F;io&#x2F;PrintStream</span><br><span class="line">#34 &#x3D; Utf8 println</span><br><span class="line">#35 &#x3D; Utf8 (I)V</span><br></pre></td></tr></table></figure>
-
+<pre><code>Constant pool:
+#1 = Methodref #5.#23 // java/lang/Object.&quot;&lt;init&gt;&quot;:
+()V
+#2 = Fieldref #24.#25 //
+java/lang/System.out:Ljava/io/PrintStream;
+#3 = Methodref #26.#27 // java/io/PrintStream.println:
+(I)V
+#4 = Class #28 // cn/itcast/jvm/Test1
+#5 = Class #29 // java/lang/Object
+#6 = Utf8 &lt;init&gt;
+#7 = Utf8 ()V
+#8 = Utf8 Code
+#9 = Utf8 LineNumberTable
+#10 = Utf8 LocalVariableTable
+#11 = Utf8 this
+#12 = Utf8 L/jvm/Test1;
+#13 = Utf8 main
+#14 = Utf8 ([Ljava/lang/String;)V
+#15 = Utf8 args
+#16 = Utf8 [Ljava/lang/String;
+#17 = Utf8 a
+#18 = Utf8 I
+#19 = Utf8 b
+#20 = Utf8 c
+#21 = Utf8 SourceFile
+#22 = Utf8 Test1.java
+#23 = NameAndType #6:#7 // &quot;&lt;init&gt;&quot;:()V
+#24 = Class #30 // java/lang/System
+#25 = NameAndType #31:#32 // out:Ljava/io/PrintStream;
+#26 = Class #33 // java/io/PrintStream
+#27 = NameAndType #34:#35 // println:(I)V
+#28 = Utf8 cn/itcast/jvm/Test1
+#29 = Utf8 java/lang/Object
+#30 = Utf8 java/lang/System
+#31 = Utf8 out
+#32 = Utf8 Ljava/io/PrintStream;
+#33 = Utf8 java/io/PrintStream
+#34 = Utf8 println
+#35 = Utf8 (I)V</code></pre>
 <ul>
 <li><p>字段描述符<br>官网：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.3.2">https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.3.2</a> </p>
 </li>
@@ -421,20 +470,93 @@
 <blockquote>
 <p>第三部分：显示该类的构造器，编译器自动插入的。 </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public jvm.Test1();</span><br><span class="line">descriptor: ()V</span><br><span class="line">flags: ACC_PUBLIC</span><br><span class="line">Code:</span><br><span class="line">stack&#x3D;1, locals&#x3D;1, args_size&#x3D;1</span><br><span class="line">0: aload_0</span><br><span class="line">1: invokespecial #1 &#x2F;&#x2F; Method</span><br><span class="line">java&#x2F;lang&#x2F;Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">4: return</span><br><span class="line">LineNumberTable:</span><br><span class="line">line 3: 0</span><br><span class="line">LocalVariableTable:</span><br><span class="line">Start Length Slot Name Signature</span><br><span class="line">0 5 0 this Lcn&#x2F;itcast&#x2F;jvm&#x2F;Test1;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>&#123;
+public jvm.Test1();
+descriptor: ()V
+flags: ACC_PUBLIC
+Code:
+stack=1, locals=1, args_size=1
+0: aload_0
+1: invokespecial #1 // Method
+java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+4: return
+LineNumberTable:
+line 3: 0
+LocalVariableTable:
+Start Length Slot Name Signature
+0 5 0 this Lcn/itcast/jvm/Test1;</code></pre>
 <blockquote>
 <p>第四部分：显示了main方的信息。（这个是需要我们重点关注的） </p>
 </blockquote>
-<figure class="highlight plain"><figcaption><span>static void main(java.lang.String[]);</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">descriptor: ([Ljava&#x2F;lang&#x2F;String;)V</span><br><span class="line">flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">Code:</span><br><span class="line">stack&#x3D;2, locals&#x3D;4, args_size&#x3D;1</span><br><span class="line">0: iconst_2</span><br><span class="line">1: istore_1</span><br><span class="line">2: iconst_5</span><br><span class="line">3: istore_2</span><br><span class="line">4: iload_2</span><br><span class="line">5: iload_1</span><br><span class="line">6: isub</span><br><span class="line">7: istore_3</span><br><span class="line">8: getstatic #2 &#x2F;&#x2F; Field java&#x2F;lang&#x2F;System.out:Ljava&#x2F;io&#x2F;PrintStream;</span><br><span class="line">11: iload_3</span><br><span class="line">12: invokevirtual #3 &#x2F;&#x2F; Method</span><br><span class="line">java&#x2F;io&#x2F;PrintStream.println:(I)V</span><br><span class="line">15: return</span><br><span class="line">LineNumberTable:</span><br><span class="line">line 6: 0</span><br><span class="line">line 7: 2</span><br><span class="line">line 8: 4</span><br><span class="line">line 9: 8</span><br><span class="line">line 10: 15</span><br><span class="line">LocalVariableTable:</span><br><span class="line">Start Length Slot Name Signature</span><br><span class="line">0 16 0 args [Ljava&#x2F;lang&#x2F;String;</span><br><span class="line">2 14 1 a I</span><br><span class="line">4 12 2 b I</span><br><span class="line">8 8 3 c I</span><br><span class="line">&#125;</span><br><span class="line">SourceFile: &quot;Test1.java&quot;&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>public static void main(java.lang.String[]);
+descriptor: ([Ljava/lang/String;)V
+flags: ACC_PUBLIC, ACC_STATIC
+Code:
+stack=2, locals=4, args_size=1
+0: iconst_2
+1: istore_1
+2: iconst_5
+3: istore_2
+4: iload_2
+5: iload_1
+6: isub
+7: istore_3
+8: getstatic #2 // Field java/lang/System.out:Ljava/io/PrintStream;
+11: iload_3
+12: invokevirtual #3 // Method
+java/io/PrintStream.println:(I)V
+15: return
+LineNumberTable:
+line 6: 0
+line 7: 2
+line 8: 4
+line 9: 8
+line 10: 15
+LocalVariableTable:
+Start Length Slot Name Signature
+0 16 0 args [Ljava/lang/String;
+2 14 1 a I
+4 12 2 b I
+8 8 3 c I
+&#125;
+SourceFile: &quot;Test1.java&quot;</code></pre>
 <p><strong>2. 解读方法字节码</strong></p>
-<figure class="highlight plain"><figcaption><span>static void main(java.lang.String[]);</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">descriptor: ([Ljava&#x2F;lang&#x2F;String;)V &#x2F;&#x2F;方法描述，V表示该方法的放回值为void</span><br><span class="line">flags: ACC_PUBLIC, ACC_STATIC         &#x2F;&#x2F; 方法修饰符，public、static的</span><br><span class="line">Code:</span><br><span class="line">&#x2F;&#x2F; stack&#x3D;2,操作栈的大小为2、locals&#x3D;4，本地变量表大小，args_size&#x3D;1, 参数的个数</span><br><span class="line">stack&#x3D;2, locals&#x3D;4, args_size&#x3D;1</span><br><span class="line">0: iconst_2             &#x2F;&#x2F;将数字2值压入操作栈，位于栈的最上面</span><br><span class="line">1: istore_1             &#x2F;&#x2F;从操作栈中弹出一个元素(数字2)，放入到本地变量表中，位于下标为1的位置（下标为0的this）</span><br><span class="line">2: iconst_5             &#x2F;&#x2F;将数字5值压入操作栈，位于栈的最上面</span><br><span class="line">3: istore_2             &#x2F;&#x2F;从操作栈中弹出一个元素(5)，放入到本地变量表中，位于第下标为2个位置</span><br><span class="line">4: iload_2                 &#x2F;&#x2F;将本地变量表中下标为2的位置元素压入操作栈（5）</span><br><span class="line">5: iload_1                 &#x2F;&#x2F;将本地变量表中下标为1的位置元素压入操作栈（2）</span><br><span class="line">6: isub                 &#x2F;&#x2F;操作栈中的2个数字相减</span><br><span class="line">7: istore_3         &#x2F;&#x2F; 将相减的结果压入到本地本地变量表中，位于下标为3的位置</span><br><span class="line">&#x2F;&#x2F; 通过#2号找到对应的常量，即可找到对应的引用</span><br><span class="line">8: getstatic #2             &#x2F;&#x2F; Field</span><br><span class="line">java&#x2F;lang&#x2F;System.out:Ljava&#x2F;io&#x2F;PrintStream;</span><br><span class="line">11: iload_3 &#x2F;&#x2F;将本地变量表中下标为3的位置元素压入操作栈（3）</span><br><span class="line">&#x2F;&#x2F; 通过#3号找到对应的常量，即可找到对应的引用，进行方法调用</span><br><span class="line">12: invokevirtual #3         &#x2F;&#x2F; Method</span><br><span class="line">java&#x2F;io&#x2F;PrintStream.println:(I)V</span><br><span class="line">15: return                 &#x2F;&#x2F;返回</span><br><span class="line">LineNumberTable:             &#x2F;&#x2F;行号的列表</span><br><span class="line">line 6: 0</span><br><span class="line">line 7: 2</span><br><span class="line">line 8: 4</span><br><span class="line">line 9: 8</span><br><span class="line">line 10: 15</span><br><span class="line">LocalVariableTable:         &#x2F;&#x2F; 本地变量表</span><br><span class="line">Start Length Slot Name Signature</span><br><span class="line">0 16 0 args [Ljava&#x2F;lang&#x2F;String;</span><br><span class="line">2 14 1 a I</span><br><span class="line">4 12 2 b I</span><br><span class="line">8 8 3 c I</span><br><span class="line">&#125;</span><br><span class="line">SourceFile: &quot;Test1.java&quot;&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
-
+<pre><code>public static void main(java.lang.String[]);
+descriptor: ([Ljava/lang/String;)V //方法描述，V表示该方法的放回值为void
+flags: ACC_PUBLIC, ACC_STATIC         // 方法修饰符，public、static的
+Code:
+// stack=2,操作栈的大小为2、locals=4，本地变量表大小，args_size=1, 参数的个数
+stack=2, locals=4, args_size=1
+0: iconst_2             //将数字2值压入操作栈，位于栈的最上面
+1: istore_1             //从操作栈中弹出一个元素(数字2)，放入到本地变量表中，位于下标为1的位置（下标为0的this）
+2: iconst_5             //将数字5值压入操作栈，位于栈的最上面
+3: istore_2             //从操作栈中弹出一个元素(5)，放入到本地变量表中，位于第下标为2个位置
+4: iload_2                 //将本地变量表中下标为2的位置元素压入操作栈（5）
+5: iload_1                 //将本地变量表中下标为1的位置元素压入操作栈（2）
+6: isub                 //操作栈中的2个数字相减
+7: istore_3         // 将相减的结果压入到本地本地变量表中，位于下标为3的位置
+// 通过#2号找到对应的常量，即可找到对应的引用
+8: getstatic #2             // Field
+java/lang/System.out:Ljava/io/PrintStream;
+11: iload_3 //将本地变量表中下标为3的位置元素压入操作栈（3）
+// 通过#3号找到对应的常量，即可找到对应的引用，进行方法调用
+12: invokevirtual #3         // Method
+java/io/PrintStream.println:(I)V
+15: return                 //返回
+LineNumberTable:             //行号的列表
+line 6: 0
+line 7: 2
+line 8: 4
+line 9: 8
+line 10: 15
+LocalVariableTable:         // 本地变量表
+Start Length Slot Name Signature
+0 16 0 args [Ljava/lang/String;
+2 14 1 a I
+4 12 2 b I
+8 8 3 c I
+&#125;
+SourceFile: &quot;Test1.java&quot;</code></pre>
 <blockquote>
 <p>小结</p>
 <p> 使用字节码的方式可以很好查看代码底层的执行，从而可以看出哪些实现效率高，哪些 实现效率低。可以更好的对我们的代码做优化。让程序执行效率更高。  </p>
