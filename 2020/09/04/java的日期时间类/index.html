@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mybatis, 黄熙的博客">
+    <meta name="keywords" content="java的日期时间类, 黄熙的博客">
     <meta name="description" content="在此分享自己的心得，技术博客，qq1014231151">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mybatis | 黄熙的博客</title>
+    <title>java的日期时间类 | 黄熙的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mybatis</h1>
+                    <h1 class="description center-align post-title">java的日期时间类</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java%E6%A1%86%E6%9E%B6/">
-                                <span class="chip bg-color">java框架</span>
+                            <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">java基础</span>
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-21
+                    2020-09-04
                 </div>
                 
 
@@ -399,7 +399,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="Java-日期时间"><a href="#Java-日期时间" class="headerlink" title="Java 日期时间"></a>Java 日期时间</h2><p>java.util 包提供了 Date 类来封装当前的日期和时间。 Date 类提供两个构造函数来实例化 Date 对象。</p>
+<p>第一个构造函数使用当前日期和时间来初始化对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date( )</span><br></pre></td></tr></table></figure>
+
+<p> 第二个构造函数接收一个参数，该参数是从1970年1月1日起的毫秒数 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date(<span class="keyword">long</span> millisec)</span><br></pre></td></tr></table></figure>
+
+<p> Date对象创建以后，可以调用下面的方法。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">序号    方法和描述</span><br><span class="line"><span class="number">1</span>    <span class="function"><span class="keyword">boolean</span> <span class="title">after</span><span class="params">(Date date)</span></span></span><br><span class="line"><span class="function">若当调用此方法的Date对象在指定日期之后返回<span class="keyword">true</span>,否则返回<span class="keyword">false</span>。</span></span><br><span class="line"><span class="function">2    <span class="keyword">boolean</span> <span class="title">before</span><span class="params">(Date date)</span></span></span><br><span class="line"><span class="function">若当调用此方法的Date对象在指定日期之前返回<span class="keyword">true</span>,否则返回<span class="keyword">false</span>。</span></span><br><span class="line"><span class="function">3    Object <span class="title">clone</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">返回此对象的副本。</span></span><br><span class="line"><span class="function">4    <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Date date)</span></span></span><br><span class="line"><span class="function">比较当调用此方法的Date对象和指定日期。两者相等时候返回0。调用对象在指定日期之前则返回负数。调用对象在指定日期之后则返回正数。</span></span><br><span class="line"><span class="function">5    <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function">若obj是Date类型则操作等同于<span class="title">compareTo</span><span class="params">(Date)</span> 。否则它抛出ClassCastException。</span></span><br><span class="line"><span class="function">6    <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object date)</span></span></span><br><span class="line"><span class="function">当调用此方法的Date对象和指定日期相等时候返回<span class="keyword">true</span>,否则返回<span class="keyword">false</span>。</span></span><br><span class="line"><span class="function">7    <span class="keyword">long</span> <span class="title">getTime</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。</span></span><br><span class="line"><span class="function">8    <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"> 返回此对象的哈希码值。</span></span><br><span class="line"><span class="function">9    <span class="keyword">void</span> <span class="title">setTime</span><span class="params">(<span class="keyword">long</span> time)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">用自1970年1月1日00:00:00 GMT以后time毫秒数设置时间和日期。</span></span><br><span class="line"><span class="function">10    String <span class="title">toString</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">把此 Date 对象转换为以下形式的 String： dow mon dd hh:mm:ss zzz yyyy 其中： dow 是一周中的某一天 <span class="params">(Sun, Mon, Tue, Wed, Thu, Fri, Sat)</span>。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取当前日期时间"><a href="#获取当前日期时间" class="headerlink" title="获取当前日期时间"></a>获取当前日期时间</h2><p>Java中获取当前日期和时间很简单，使用 Date 对象的 toString() 方法来打印当前日期和时间，如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">       <span class="comment">// 初始化 Date 对象</span></span><br><span class="line">       Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        </span><br><span class="line">       <span class="comment">// 使用 toString() 函数显示日期时间</span></span><br><span class="line">       System.out.println(date.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="日期比较"><a href="#日期比较" class="headerlink" title="日期比较"></a>日期比较</h2><p>Java使用以下三种方法来比较两个日期：</p>
+<ul>
+<li>使用 getTime() 方法获取两个日期（自1970年1月1日经历的毫秒数值），然后比较这两个值。</li>
+<li>使用方法 before()，after() 和 equals()。例如，一个月的12号比18号早，则 new Date(99, 2, 12).before(new Date (99, 2, 18)) 返回true。</li>
+<li>使用 compareTo() 方法，它是由 Comparable 接口定义的，Date 类实现了这个接口。</li>
+</ul>
+<h2 id="使用-SimpleDateFormat-格式化日期"><a href="#使用-SimpleDateFormat-格式化日期" class="headerlink" title="使用 SimpleDateFormat 格式化日期"></a>使用 SimpleDateFormat 格式化日期</h2><p>SimpleDateFormat 是一个以语言环境敏感的方式来格式化和分析日期的类。SimpleDateFormat 允许你选择任何用户自定义日期时间格式来运行。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.text.*;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">      Date dNow = <span class="keyword">new</span> Date( );</span><br><span class="line">      SimpleDateFormat ft = <span class="keyword">new</span> SimpleDateFormat (<span class="string">&quot;yyyy-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line"> </span><br><span class="line">      System.out.println(<span class="string">&quot;当前时间为: &quot;</span> + ft.format(dNow));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>SimpleDateFormat ft = new SimpleDateFormat (&quot;yyyy-MM-dd hh:mm:ss&quot;);</code></p>
+<p>这一行代码确立了转换的格式，其中 yyyy 是完整的公元年，MM 是月份，dd 是日期，HH:mm:ss 是时、分、秒。</p>
+<p><strong>注意</strong>:有的格式大写，有的格式小写，例如 MM 是月份，mm 是分；HH 是 24 小时制，而 hh 是 12 小时制。</p>
+<p>以上实例编译运行结果如下:</p>
+<p><code>当前时间为: 2018-09-06 10:16:34</code></p>
+<h2 id="解析字符串为时间"><a href="#解析字符串为时间" class="headerlink" title="解析字符串为时间"></a>解析字符串为时间</h2><p>SimpleDateFormat 类有一些附加的方法，特别是parse()，它试图按照给定的SimpleDateFormat 对象的格式化存储来解析字符串。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.text.*;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      SimpleDateFormat ft = <span class="keyword">new</span> SimpleDateFormat (<span class="string">&quot;yyyy-MM-dd&quot;</span>); </span><br><span class="line"> </span><br><span class="line">      String input = args.length == <span class="number">0</span> ? <span class="string">&quot;1818-11-11&quot;</span> : args[<span class="number">0</span>]; </span><br><span class="line"> </span><br><span class="line">      System.out.print(input + <span class="string">&quot; Parses as &quot;</span>); </span><br><span class="line"> </span><br><span class="line">      Date t; </span><br><span class="line"> </span><br><span class="line">      <span class="keyword">try</span> &#123; </span><br><span class="line">          t = ft.parse(input); </span><br><span class="line">          System.out.println(t); </span><br><span class="line">      &#125; <span class="keyword">catch</span> (ParseException e) &#123; </span><br><span class="line">          System.out.println(<span class="string">&quot;Unparseable using &quot;</span> + ft); </span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测量时间"><a href="#测量时间" class="headerlink" title="测量时间"></a>测量时间</h2><p>下面的一个例子表明如何测量时间间隔（以毫秒为单位）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiffDemo</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">long</span> start = System.currentTimeMillis( );</span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">         Thread.sleep(<span class="number">5</span>*<span class="number">60</span>*<span class="number">10</span>);</span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">         <span class="keyword">long</span> end = System.currentTimeMillis( );</span><br><span class="line">         <span class="keyword">long</span> diff = end - start;</span><br><span class="line">         System.out.println(<span class="string">&quot;Difference is : &quot;</span> + diff);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;Got an exception!&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
             </div>
             <hr/>
 
@@ -424,7 +457,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huangxi1020.github.io/2020/08/21/Mybatis/">http://huangxi1020.github.io/2020/08/21/Mybatis/</a>
+                    <a href="http://huangxi1020.github.io/2020/09/04/java%E7%9A%84%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB/">http://huangxi1020.github.io/2020/09/04/java%E7%9A%84%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,8 +495,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java%E6%A1%86%E6%9E%B6/">
-                                    <span class="chip bg-color">java框架</span>
+                                <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">java基础</span>
                                 </a>
                             
                         </div>
@@ -631,30 +664,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/08/21/Mybatis/">
+                <a href="/2020/09/10/javaType%E4%B8%8EjdbcType%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="javaType与jdbcType的对应关系">
                         
-                        <span class="card-title">Mybatis</span>
+                        <span class="card-title">javaType与jdbcType的对应关系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            javaType与jdbcType的对应关系 Java Type                       JDBC Type
+String                                          CHARStr
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -663,12 +696,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">java框架</span>
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
@@ -682,29 +714,27 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/20/java%E6%9E%9A%E4%B8%BE/">
+                <a href="/2020/09/02/Http%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="java枚举">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Http请求报文">
                         
-                        <span class="card-title">java枚举</span>
+                        <span class="card-title">Http请求报文</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            枚举
-列举，罗列
-枚举是代表这样一系列的类型，这些类型有一个非常明显的特征：他们的对象是有限的几个
-
-例如：Week（星期），可以限定Week类型的对象只有7个。Season（季节），可以限定对象为4 个。
-又例如：员工状态，可以限定为：空
+                            HTTP请求报文（请求行、请求头、请求体），响应报文一、HTTP请求报文
+HTTP请求报文由3部分组成（请求行+请求头+请求体）：
+请求行：
+①是请求方法，GET和POST是最常见的HTTP方法，除此以外还包括DELETE、HEAD、OPT
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
                             </span>
                         <span class="publish-author">
                             
@@ -717,8 +747,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">java基础</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">
+                        <span class="chip bg-color">计算机网络相关</span>
                     </a>
                     
                 </div>

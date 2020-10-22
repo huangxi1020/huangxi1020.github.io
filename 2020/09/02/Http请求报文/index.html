@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="java中的VO、PO、BO、DAO、POJO, 黄熙的博客">
+    <meta name="keywords" content="Http请求报文, 黄熙的博客">
     <meta name="description" content="在此分享自己的心得，技术博客，qq1014231151">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>java中的VO、PO、BO、DAO、POJO | 黄熙的博客</title>
+    <title>Http请求报文 | 黄熙的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">java中的VO、PO、BO、DAO、POJO</h1>
+                    <h1 class="description center-align post-title">Http请求报文</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">
-                                <span class="chip bg-color">java中的对象</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">
+                                <span class="chip bg-color">计算机网络相关</span>
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-20
+                    2020-09-02
                 </div>
                 
 
@@ -399,103 +399,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>这些对象一直有点搞不清楚，以后再搞不清楚到时候就可以上博客来看一看</strong></p>
-<p><strong><em>\</em>java中的vo,po,to,bo,pojo,dao**</strong></p>
-<p><strong>O/R Mapping:Object Relational Mapping</strong></p>
-<p>将对象与关系数据库绑定，用对象来表示关系数据。</p>
-<p><strong>VO</strong>:Value Object值对象</p>
-<p><strong>PO</strong>:Persisent Object持久对象</p>
-<p>由一组属性和属性的get和set方法组成</p>
-<p>1.VO是用new关键字创建，由GC回收的</p>
-<p>PO是向数据库中添加新数据时创建，删除数据库中的数据时削除的。并且只能存活在一个数据库连接中，断开连接即被销毁</p>
-<p>2.VO是值对象，业务对象，存活在业务层，是业务逻辑使用的，存活的目的就是为数据提供一个生存的地方。PO则是有状态的，每个属性代表其当前的状态。它是物理数据的对象表示。使用它，可以使我们的程序与物理数据解耦，并且可以简化对象数据与物理数据之间的转换。</p>
-<p>3.VO的属性是根据当前业务的不同而不同的，也就是说，它的每一个属性都一一对应当前业务逻辑所需要的数据的名称。PO的属性是跟数据库表的字段一一对应的。</p>
-<p>PO对象需要实现序列化接口</p>
-<p>-—————————–</p>
-<p>PO是持久化对象，它只是将物理数据实体的一种对象表示，可以简化我们对于物理实体的了解和耦合，可心简化对象的数据转换为物理数据的编程。VO是值对象，是业务对象，是生活在业务层的，是业务逻辑需要了解，需要使用的，再简单地讲，安是概念模型转换得到的。</p>
-<p>PO和VO，它们的关系应该是相互独立的，一个VO可以只是PO的部分，也可以是多个PO构成，同样也可以等同于一个PO（属性）。正因为这样，PO独立出来，数据持久层也就独立出来了，它不会受到任何业务的干涉。又正因为这样，业务逻辑层也独立开来，它不会受到数据持久层的影响，业务层关心的只是业务逻辑的处理。如果我们没有使用数据持久层，或者说没有使用hibernate，那么PO和VO也可以是同一个东西，虽然这并不好。</p>
-<p>-———————————–</p>
-<p>PO(persistant object)持久对象</p>
-<p>在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型（数据库），本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中的某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。</p>
-<p>VO(value object)值对象</p>
-<p>通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象，可以和表对应，也可以不，这根据业务的需要，个人觉得同DTO（数据传输对象），在web上传递。</p>
-<p>TO（Transfer Object）数据传输对象</p>
-<p>在应用程序不能tie（关系）之间传输的对象</p>
-<p>BO(business object)业务对象</p>
-<p>从业务模型的角度看，见UML元件领域模型中的领域对象。封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作。</p>
-<p>POJO（plain ordinary java object）简单无规则java对象</p>
-<p>纯的传统意义的java对象。就是说在一些Object/Relation Mapping工具中，能够做到维护数据库表记录的persisent object完全是一个符合Java Bean规范的纯Java对象，没有增加别的属性和方法。我的理解就是最基本的Java Bean,只有属性字段及setter和getter方法。</p>
-<p>DAO(data access object)数据访问对象</p>
-<p>是sun的一个标准j2ee设计模式，这个模式中有个接口就是DAO，它负责持久层的操作。为业务层提供接口。此对象用于访问数据库。通常和PO结合使用，DAO中包含了各种数据库的操作方法。通过它的方法，结合PO对数据库进行相关的操作。夹在于业务逻辑死心塌地数据库资源中间。配合VO，提供数据库的CRUD操作</p>
-<p>O/R Mapper 对象/关系 映射</p>
-<p>定义好所有的mapping之后，这个O/R Mapper可以帮我们做很多的工作。通过这些mappings，这个O/R Mapper可以生成所有的关于对象保存，删除，读取的SQL语句，我们不再需要写那么多行的DAL代码了</p>
-<p>实体Model（实体模式）</p>
-<p>DAL(数据访问层)</p>
-<p>IDAL（接口层）</p>
-<p>DALFactory(类工厂)</p>
-<p>BLL(业务逻辑层)</p>
-<p>BOF Business Object Framework 业务对象框架</p>
-<p>SOA Service Orient Architecture 面向服务的设计</p>
-<p>EMF Eclipse Model Framework Eclipse建模框架</p>
-<p>-———————————</p>
-<p>PO:persistant object持久对象</p>
-<p>最形象的理解就是一个PO就是数据库中的一条记录</p>
-<p>好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。</p>
-<p>BO:business object业务对象</p>
-<p>主要作用是把业务逻辑封装为一个对象。这个对象可以包括一个或多个其它的对象。</p>
-<p>比如一个简历，有教育经历、工作经历、社会关系等等。</p>
-<p>我们可以把教育经历对应一个PO，工作经历对应一个PO，社会关系对应一个PO。建立一个对应简历的BO对象处理简历，每个BO包含这些PO。</p>
-<p>这样处理业务逻辑时，我们就可以针对BO去处理。</p>
-<p>VO:value object值对象</p>
-<p>View Object表现层对象</p>
-<p>主要对应界面显示的数据对象。对于一个WEB页面，或者SWT、SWING的一个界面，用一个VO对象对应整个界面的值。</p>
-<p>DTO:Data Transfer Object数据传输对象</p>
-<p>主要用于远程调用等需要大量传输对象的地方。</p>
-<p>比如我们一张表有100个字段，那么对应的PO就有100个属性。</p>
-<p>介理我们界面上只要显示10个字段，</p>
-<p>客户端用WEB service来获取数据，没有必要把整个PO对象传递到客户端，</p>
-<p>这时我们就可以用只有这10个属性的DTO来传递结果到客户端，这样也不会暴露服务端表结构。到达客户端以后，如果用这个对象来对应界面显示，那此时它的身份就转为VO</p>
-<p>POJO:plain ordinary java object简单java对象</p>
-<p>个人感觉POJO是最常见最多变的对象，是一个中间对象，也是我们最常打交道的对象。</p>
-<p>一个POJO持久化以后就是PO</p>
-<p>直接用它传递、传递过程中就是DTO</p>
-<p>直接用来对应表示层就是VO</p>
-<p>DAO:data access object数据访问对象</p>
-<p>这个大家最熟悉，和上面几个O区别最大，基本没有互相转化的可能性和必要。</p>
-<p>主要用来封闭对数据库的访问。通过它可以把POJO持久化为PO，用PO组装出来VO、DTO</p>
-<p>-——————————-</p>
-<p>PO:persistant object持久对象，可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中的某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。</p>
-<p>VO:value object值对象。通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象，可以和表对应，也可以不，这根据业务的需要，个人觉得同DTO（数据传输对象），在web上传递。</p>
-<p>DAO:data access object数据访问对象，此对象用于访问数据库。通常和PO结合使用，DAO中包含了各种数据库的操作方法。通过它的方法，结合PO对数据库进行相关的操作。</p>
-<p>BO:business object业务对象，封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作；</p>
-<p>POJO:plain ordinary java object简单无规则java对象，我个人觉得它和其他不是一个层面上的东西，VO和PO应该都属于它。</p>
-<p>-——————————–</p>
-<p>VO:值对象、视图对象</p>
-<p>PO:持久对象</p>
-<p>QO:查询对象</p>
-<p>DAO:数据访问对象</p>
-<p>DTO:数据传输对象</p>
-<p>-——————————-</p>
-<p>struts里的ActionForm就是个VO；</p>
-<p>hibernate里的实体bean就是个PO，也叫POJO；</p>
-<p>hibernate里的Criteria就相当于一个QO；</p>
-<p>在使用hibernate的时候我们会定义一些查询的方法，这些方法写在接口里，可以有不同的实现类。而这个接口就可以说是个DAO。</p>
-<p>个人认为QO和DTO差不多。</p>
-<p>-———————————-</p>
-<p>PO或叫BO，与数据库最接近的一层，是ORM中的O，基本上是数据库字段对应BO中的一个属性，为了同步与安全性的考虑，最好只给DAO或者Service调用，而不要用packcode,backingBean,或者BO调。</p>
-<p>DAO,数据访问层，把VO，backingBean中的对象可以放入。。</p>
-<p>DTO，很少用，基本放入到DAO中，只是起到过渡的作用。</p>
-<p>QO，是把一些与持久性查询操作与语句放入。。</p>
-<p>VO,V层中用到的基本元素与方法等放其中。如果要其调用BO，则要做BO转换VO，VO转换BO操作。VO的好处是其页面的元素属性多于BO，可起到很好的作用。。</p>
-<p>-———————————</p>
-<p>楼上的不对吧，PO是持久化对象。BO=business object-业务对象。</p>
-<p>PO可以严格对应数据库表，一张表对映一个PO。</p>
-<p>BO则是业务逻辑处理对象，我的理解是它装潢了业务逻辑的处理，在业务逻辑复杂的应用中有用。</p>
-<p>VO:value object值对象、view object视图对象</p>
-<p>PO:持久对象</p>
-<p>QO:查询对象</p>
-<p>DAO:数据访问对象——同时还有DAO模式</p>
-<p>DTO:数据传输对象——同时还有DTO模式</p>
+                <h3 id="HTTP请求报文（请求行、请求头、请求体），响应报文"><a href="#HTTP请求报文（请求行、请求头、请求体），响应报文" class="headerlink" title="HTTP请求报文（请求行、请求头、请求体），响应报文"></a>HTTP请求报文（请求行、请求头、请求体），响应报文</h3><p>一、HTTP请求报文</p>
+<p>HTTP请求报文由3部分组成（请求行+请求头+请求体）：</p>
+<p><strong>请求行：</strong></p>
+<p>①是请求方法，GET和POST是最常见的HTTP方法，除此以外还包括DELETE、HEAD、OPTIONS、PUT、TRACE。</p>
+<p>②为请求对应的URL地址，它和报文头的Host属性组成完整的请求URL。</p>
+<p>③是协议名称及版本号。</p>
+<p><strong>请求头：</strong></p>
+<p>④是HTTP的报文头，报文头包含若干个属性，格式为“属性名:属性值”，服务端据此获取客户端的信息。</p>
+<p>与缓存相关的规则信息，均包含在header中</p>
+<p><strong>请求体：</strong></p>
+<p>⑤是报文体，它将一个页面表单中的组件值通过param1=value1&amp;param2=value2的键值对形式编码成一个格式化串，它承载多个请求参数的数据。不但报文体可以传递请求参数，请求URL也可以通过类似于“/chapter15/user.html? param1=value1&amp;param2=value2”的方式传递请求参数。 </p>
+<p><strong>HTTP请求报文头属性</strong></p>
+<p>1.Accept<br>请求报文可通过一个“Accept”报文头属性告诉服务端 客户端接受什么类型的响应。<br>如下报文头相当于告诉服务端，俺客户端能够接受的响应类型仅为纯文本数据啊，你丫别发其它什么图片啊，视频啊过来，那样我会歇菜的<del>~</del></p>
+<p><code>Accept:text/plain </code></p>
+<p>Accept属性的值可以为一个或多个MIME类型的值（描述消息内容类型的因特网标准， 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据）</p>
+<p>2.cookie</p>
+<p>客户端的Cookie就是通过这个报文头属性传给服务端的哦！如下所示：</p>
+<p> <code>Cookie: $Version=1; Skin=new;jsessionid=5F4771183629C9834F8382E23 </code></p>
+<p>服务端是怎么知道客户端的多个请求是隶属于一个Session呢？注意到后台的那个jsessionid = 5F4771183629C9834F8382E23木有？原来就是通过HTTP请求报文头的Cookie属性的jsessionid的值关联起来的！（当然也可以通过重写URL的方式将会话ID附带在每个URL的后面哦）。</p>
+<p>3.Referer<br>表示这个请求是从哪个URL过来的，假如你通过google搜索出一个商家的广告页面，你对这个广告页面感兴趣，鼠标一点发送一个请求报文到商家的网站，这个请求报文的Referer报文头属性值就是<a target="_blank" rel="noopener" href="http://www.google.com./">http://www.google.com。</a></p>
+<p>Cache-Control</p>
+<p>对缓存进行控制，如一个请求希望响应返回的内容在客户端要被缓存一年，或不希望被缓存就可以通过这个报文头达到目的。</p>
+<p> 二、HTTP响应报文</p>
+<p>HTTP的响应报文也由三部分组成（响应行+响应头+响应体）</p>
+<p>响应行：</p>
+<p>①报文协议及版本；<br>②状态码及状态描述；</p>
+<p>响应头：</p>
+<p>③响应报文头，也是由多个属性组成；</p>
+<p>响应体：</p>
+<p>④响应报文体，即我们真正要的“干货”</p>
+<p>常见的HTTP响应报文头属性</p>
+<p>Cache-Control<br>响应输出到客户端后，服务端通过该报文头属告诉客户端如何控制响应内容的缓存。</p>
+<p>常见的取值有private、public、no-cache、max-age，no-store，默认为private。<br>private:        客户端可以缓存<br>public:         客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br>max-age=xxx:  缓存的内容将在 xxx 秒后失效<br>no-cache:      需要使用对比缓存来验证缓存数据<br>no-store:       所有内容都不会缓存</p>
+<p>默认为private，缓存时间为31536000秒（365天）也就是说，在365天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。</p>
+<p>ETag<br>一个代表响应服务端资源（如页面）版本的报文头属性，如果某个服务端资源发生变化了，这个ETag就会相应发生变化。它是Cache-Control的有益补充，可以让客户端“更智能”地处理什么时候要从服务端取资源，什么时候可以直接从缓存中返回响应。</p>
+<p>Location<br>我们在JSP中让页面Redirect到一个某个A页面中，其实是让客户端再发一个请求到A页面，这个需要Redirect到的A页面的URL，其实就是通过响应报文头的Location属性告知客户端的，如下的报文头属性，将使客户端redirect到iteye的首页中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Location: http:&#x2F;&#x2F;www.iteye.com  </span><br></pre></td></tr></table></figure>
+
+<p>Set-Cookie<br>服务端可以设置客户端的Cookie，其原理就是通过这个响应报文头属性实现的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: UserID&#x3D;JohnDoe; Max-Age&#x3D;3600; Version&#x3D;1  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>cookie机制：</p>
+<p>客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容。</p>
+<p>Cookie的maxAge决定着Cookie的有效期，单位为秒（Second）。Cookie中通过getMaxAge()方法与setMaxAge(int maxAge)方法来读写maxAge属性。</p>
+<p>如果maxAge属性为正数，则表示该Cookie会在maxAge秒之后自动失效。</p>
+<p>如果maxAge为负数，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。</p>
+<p>如果maxAge为0，则表示删除该Cookie。</p>
+<p>Cookie并不提供修改、删除操作。如果要修改某个Cookie，只需要新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
+<p>如果要删除某个Cookie，只需要新建一个同名的Cookie，并将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
+<p>Cookie cookie = new Cookie(“username”,”helloweenvsfei”);  // 新建Cookie</p>
+<p>cookie.setMaxAge(0);              // 设置生命周期为0，不能为负数</p>
+<p>response.addCookie(cookie);           // 必须执行这一句 输出到客户端</p>
 
             </div>
             <hr/>
@@ -521,7 +478,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huangxi1020.github.io/2020/08/20/java%E4%B8%AD%E7%9A%84VO%E3%80%81PO%E3%80%81BO%E3%80%81DAO%E3%80%81POJO/">http://huangxi1020.github.io/2020/08/20/java%E4%B8%AD%E7%9A%84VO%E3%80%81PO%E3%80%81BO%E3%80%81DAO%E3%80%81POJO/</a>
+                    <a href="http://huangxi1020.github.io/2020/09/02/Http%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87/">http://huangxi1020.github.io/2020/09/02/Http%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,8 +516,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">
-                                    <span class="chip bg-color">java中的对象</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">
+                                    <span class="chip bg-color">计算机网络相关</span>
                                 </a>
                             
                         </div>
@@ -732,29 +689,28 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/08/20/java%E6%9E%9A%E4%B8%BE/">
+                <a href="/2020/09/04/java%E7%9A%84%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="java枚举">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="java的日期时间类">
                         
-                        <span class="card-title">java枚举</span>
+                        <span class="card-title">java的日期时间类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            枚举
-列举，罗列
-枚举是代表这样一系列的类型，这些类型有一个非常明显的特征：他们的对象是有限的几个
+                            Java 日期时间java.util 包提供了 Date 类来封装当前的日期和时间。 Date 类提供两个构造函数来实例化 Date 对象。
+第一个构造函数使用当前日期和时间来初始化对象。
+1Date( )
 
-例如：Week（星期），可以限定Week类型的对象只有7个。Season（季节），可以限定对象为4 个。
-又例如：员工状态，可以限定为：空
+ 第二个构造函数接收一个参数，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-04
                         </span>
                         <span class="publish-author">
                             
@@ -782,27 +738,29 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/16/NIO%E4%B8%8ENetty%E7%BC%96%E7%A8%8B/">
+                <a href="/2020/08/20/java%E6%9E%9A%E4%B8%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="NIO与Netty编程">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="java枚举">
                         
-                        <span class="card-title">NIO与Netty编程</span>
+                        <span class="card-title">java枚举</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-NIO与Netty编程
+                            枚举
+列举，罗列
+枚举是代表这样一系列的类型，这些类型有一个非常明显的特征：他们的对象是有限的几个
 
-一.多线程编程1.回顾基本知识​          线程是比进程更小的能独立运行的基本单位， 它是进程的一部分， 一个进程可以拥有多个线程， 但至少要有一个线程， 即主执行线程(Java 的 main 方法)。 
+例如：Week（星期），可以限定Week类型的对象只有7个。Season（季节），可以限定对象为4 个。
+又例如：员工状态，可以限定为：空
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
                             </span>
                         <span class="publish-author">
                             
@@ -815,8 +773,8 @@ NIO与Netty编程
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">网络编程基础</span>
+                    <a href="/tags/java%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">java基础</span>
                     </a>
                     
                 </div>
